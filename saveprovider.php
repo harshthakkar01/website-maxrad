@@ -22,17 +22,13 @@
 	$ptelephone = filter_var($_POST["provider_telephone"], FILTER_SANITIZE_STRING);
 	
 	if(empty($pid)){
-		$statement = $mysqli->prepare("INSERT INTO Providers (name, contact, email, address, telephone) VALUES(?, ?, ?, ?, ?)");
-		$statement->bind_param('sssss', $pname, $pcontact, $pemail, $paddress, $ptelephone);
-	
+		
 		if($statement->execute()){
 			print "Provider has been created";		
 		} else {
 			print $mysqli->error;
 		}
 	} else {
-		$statement = $mysqli->prepare("UPDATE Providers SET name = ?, contact = ?, email = ?, address = ?, telephone = ? WHERE Providers.id = ?");
-		$statement->bind_param('sssssi', $pname, $pcontact, $pemail, $paddress, $ptelephone, $pid);
 		if($statement->execute()){
 			print "Provider has been updated";		
 		} else {
