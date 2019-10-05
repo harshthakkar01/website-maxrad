@@ -19,10 +19,6 @@
 	
 
 	if(!empty($providerid)){
-		$query_string = "SELECT id, name, contact, email, address, telephone FROM Providers WHERE id=$providerid";
-		//echo $query_string;
-		$res = $mysqli->query($query_string);
-		//echo "Query returned ".$res->num_rows." rows";
 		
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		$pid=$datarow['id'];
