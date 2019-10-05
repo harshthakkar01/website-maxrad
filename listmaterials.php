@@ -23,10 +23,7 @@
 
 <?php
 
-	$query_string = "SELECT mat.id AS mid, mat.name AS mname, mat.datasheet AS mdatasheet, cat.name AS mcategory, man.name AS mmanufacturer FROM Materials AS mat INNER JOIN Manufacturers AS man ON mat.manufacturer_id = man.id INNER JOIN Categories AS cat ON mat.category_id = cat.id";
-
-	$res = $mysqli->query($query_string);
-
+	
 	for($i=0; $i<$res->num_rows; $i++){
 		echo "<tr>\r\n";
 		
