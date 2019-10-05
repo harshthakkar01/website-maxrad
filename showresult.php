@@ -49,7 +49,6 @@
 				<?php
 				echo "<tr>\r\n";
 				
-					$query = "select ten.testdate as tdate, op.name as oname, ten.event_value as ev, ten.maximum_force as mf, ten.tensile_strength as ts, ten.force_at_break as fab, ten.stress_at_break as sab from Test_Tensile as ten inner join Operators as op on ten.operator_id=op.id where ten.sample_id='$sid'";
 					$res2 = $mysqli->query($query);	
 									
 					for($j=0; $j<$res2->num_rows; $j++){
@@ -83,7 +82,6 @@
 				<?php
 				
 		
-				$query = "select tc.testdate as tdate, op.name as oname, tc.temperature as tmp, tc.conductivity as cnd from Test_Thermal_conductivity as tc inner join Operators as op on tc.operator_id=op.id where tc.sample_id='$sid'";
 				$res2 = $mysqli->query($query);
 				
 				for($j=0; $j<$res2->num_rows; $j++){
