@@ -13,7 +13,7 @@
 	$categoryid = filter_var($_POST["category_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($categoryid)){
-		$query_string = "SELECT id, name FROM Categories WHERE id=$categoryid";
+		// QUERY removed
 		echo $query_string;
 		$res = $mysqli->query($query_string);
 		//echo "Query returned ".$res->num_rows." rows";
