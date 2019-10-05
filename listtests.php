@@ -18,8 +18,6 @@
 	
 
 <?php
-	$query_string = "SELECT sam.id as sid, sam.name as sname from Samples as sam";
-	$res = $mysqli->query($query_string);
 	
 	for($i=0; $i<$res->num_rows; $i++){
 		echo "<tr>\r\n";
@@ -27,8 +25,6 @@
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		echo "\t<td>".$datarow['sname']."</td>\r\n";
 		
-		$query_2 = "select tests.sample_id as sid, testmode.id as tmod , count(tests.test_mode_id) as num from Test_modes as testmode inner join Tests as tests on testmode.id=tests.test_mode_id  where tests.sample_id='$datarow[sid]' group by testmode.id";
-		$res_2 = $mysqli->query($query_2);
 		
 		for($j=0; $j<$res_2->num_rows; $j++){						
 			$datarow2 = $res_2->fetch_array(MYSQLI_ASSOC);
