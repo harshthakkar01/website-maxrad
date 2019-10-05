@@ -10,7 +10,6 @@
 	$tid = filter_var($_POST["test_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($oid)){
-		$query_string = "SELECT id, testdate, operator_id, test_mode_id, sample_id FROM Tests WHERE id=$tid";
 		//echo $query_string;
 		$res = $mysqli->query($query_string);
 		//echo "Query returned ".$res->num_rows." rows";
