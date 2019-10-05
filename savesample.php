@@ -17,17 +17,13 @@
 	$sampletypeid = filter_var($_POST["sample_type"], FILTER_SANITIZE_STRING);
 	
 	if(empty($sid)){
-		$statement = $mysqli->prepare("INSERT INTO Samples (name, material_id, provider_id, sampletype_id) VALUES(?, ?, ?, ?)");
-		$statement->bind_param('siii', $sname, $materialid, $providerid, $sampletypeid);
-	
+		
 		if($statement->execute()){
 			print "Sample has been created";		
 		} else {
 			print $mysqli->error;
 		}
 	} else {
-		$statement = $mysqli->prepare("UPDATE Samples SET name = ?, material_id = ?, provider_id = ?, sampletype_id = ? WHERE Samples.id = ?");
-		$statement->bind_param('siiii', $sname, $materialid, $providerid, $sampletypeid, $sid);
 		if($statement->execute()){
 			print "Sample has been updated";		
 		} else {
