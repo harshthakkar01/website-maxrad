@@ -13,10 +13,6 @@
 	$stypeid = filter_var($_POST["sampletype_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($stypeid)){
-		$query_string = "SELECT id, name FROM Sample_types WHERE id=$stypeid";
-		//echo $query_string;
-		$res = $mysqli->query($query_string);
-		//echo "Query returned ".$res->num_rows." rows";
 		
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		$sid=$datarow['id'];
