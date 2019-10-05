@@ -24,10 +24,7 @@
 
 <?php
 
-	$query_string = "SELECT id, name FROM Categories";
-
-	$res = $mysqli->query($query_string);
-
+	
 	for($i=0; $i<$res->num_rows; $i++){
 		echo "<tr>\r\n";
 		
