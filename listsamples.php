@@ -23,10 +23,7 @@
 
 <?php
 
-	$query_string = "SELECT sam.id AS sid, sam.name AS sname, typ.name AS tname, mat.name AS mname, pro.name AS pname, man.name AS mfname FROM Samples AS sam INNER JOIN Sample_types AS typ ON sam.sampletype_id=typ.id INNER JOIN Materials AS mat ON sam.material_id = mat.id INNER JOIN Providers AS pro ON sam.provider_id=pro.id INNER JOIN Manufacturers AS man ON mat.manufacturer_id=man.id ";
-
-	$res = $mysqli->query($query_string);
-
+	
 	for($i=0; $i<$res->num_rows; $i++){
 		echo "<tr>\r\n";
 		
