@@ -17,17 +17,13 @@
 	$sname = filter_var($_POST["sampletype_name"], FILTER_SANITIZE_STRING);
 
 	if(empty($sid)){
-		$statement = $mysqli->prepare("INSERT INTO Sample_types (name) VALUES(?)");
-		$statement->bind_param('s', $sname);
-	
+		
 		if($statement->execute()){
 			print "Sample type has been created";		
 		} else {
 			print $mysqli->error;
 		}
 	} else {
-		$statement = $mysqli->prepare("UPDATE Sample_types SET name = ? WHERE Sample_types.id = ?");
-		$statement->bind_param('si', $sname, $sid);
 		if($statement->execute()){
 			print "Sample type has been updated";		
 		} else {
