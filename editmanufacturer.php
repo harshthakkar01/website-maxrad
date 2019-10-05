@@ -14,10 +14,6 @@
 	$manufacturerid = filter_var($_POST["manufacturer_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($manufacturerid)){
-		$query_string = "SELECT id, name, website FROM Manufacturers WHERE id=$manufacturerid";
-		//echo $query_string;
-		$res = $mysqli->query($query_string);
-		//echo "Query returned ".$res->num_rows." rows";
 		
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		$mid=$datarow['id'];
