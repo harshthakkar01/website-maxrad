@@ -20,17 +20,13 @@
 
 	
 	if(empty($mid)){
-		$statement = $mysqli->prepare("INSERT INTO Manufacturers (name, website) VALUES(?, ?)");
-		$statement->bind_param('ss', $mname, $mwebsite);
-	
+			
 		if($statement->execute()){
 			print "Manufacturer has been created";		
 		} else {
 			print $mysqli->error;
 		}
 	} else {
-		$statement = $mysqli->prepare("UPDATE Manufacturers SET name = ?, website = ? WHERE Manufacturers.id = ?");
-		$statement->bind_param('ssi', $mname, $mwebsite, $mid);
 		if($statement->execute()){
 			print "Manufacturer has been updated";		
 		} else {
