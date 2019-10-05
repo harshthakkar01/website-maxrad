@@ -19,17 +19,13 @@
 	$mdatasheet = filter_var($_POST["material_datasheet"], FILTER_SANITIZE_STRING);
 	
 	if(empty($mid)){
-		$statement = $mysqli->prepare("INSERT INTO Materials (name, manufacturer_id, category_id, datasheet) VALUES(?, ?, ?, ?)");
-		$statement->bind_param('siis', $mname, $manufacturerid, $categoryid, $mdatasheet);
-	
+		
 		if($statement->execute()){
 			print "Material has been created";		
 		} else {
 			print $mysqli->error;
 		}
 	} else {
-		$statement = $mysqli->prepare("UPDATE Materials SET name = ?, manufacturer_id = ?, category_id = ?, datasheet = ? WHERE Materials.id = ?");
-		$statement->bind_param('siisi', $mname, $manufacturerid, $categoryid, $mdatasheet, $mid);
 		if($statement->execute()){
 			print "Material has been updated";		
 		} else {
