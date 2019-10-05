@@ -10,9 +10,6 @@
 	$tid = filter_var($_POST["test_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($oid)){
-		//echo $query_string;
-		$res = $mysqli->query($query_string);
-		//echo "Query returned ".$res->num_rows." rows";
 		
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		$tid=$datarow['id'];
