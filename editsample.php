@@ -16,10 +16,6 @@
 	$sid = filter_var($_POST["sample_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($sid)){
-		$query_string = "SELECT id, name, provider_id, material_id, sampletype_id FROM Samples WHERE id=$sid";
-		//echo $query_string;
-		$res = $mysqli->query($query_string);
-		//echo "Query returned ".$res->num_rows." rows";
 		
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		$sid=$datarow['id'];
@@ -44,8 +40,6 @@ Name : <input type="text" name="sample_name" value="<?php echo $sname; ?>"><br /
 Sample type:
 <select name="sample_type" id="sample_type">
 <?php
-	$query_string = "SELECT id, name FROM Sample_types";
-	$res = $mysqli->query($query_string);
 	//echo "There are ".$res->num_rows." records\r\n";
 	for($i=0; $i<$res->num_rows; $i++){
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
@@ -63,8 +57,6 @@ Sample type:
 Material: 
 <select name="material" id="material">
 <?php
-	$query_string = "SELECT mat.id AS mid, mat.name AS mname, man.name AS mfname FROM Materials AS mat INNER JOIN Manufacturers AS man ON mat.manufacturer_id=man.id";
-	$res = $mysqli->query($query_string);
 	for($i=0; $i<$res->num_rows; $i++){
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		echo "\t";
@@ -82,8 +74,6 @@ Material:
 Provider: 
 <select name="provider" id="provider">
 <?php
-	$query_string = "SELECT id, name FROM Providers";
-	$res = $mysqli->query($query_string);
 	for($i=0; $i<$res->num_rows; $i++){
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		echo "\t";
