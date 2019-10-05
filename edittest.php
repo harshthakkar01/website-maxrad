@@ -16,10 +16,6 @@
 	$tid = filter_var($_POST["test_id"], FILTER_SANITIZE_STRING);
 
 	if(!empty($tid)){
-		$query_string = "SELECT id, testdate, operator_id, test_mode_id, sample_id FROM Tests WHERE id=$tid";
-		//echo $query_string;
-		$res = $mysqli->query($query_string);
-		//echo "Query returned ".$res->num_rows." rows";
 		
 		$datarow = $res->fetch_array(MYSQLI_ASSOC);
 		$tid=$datarow['id'];
@@ -54,12 +50,6 @@
 
 <form method="post" action="savetest.php">
 
-
-<?php
-	require('functions.php');
-	CreateOptionList("Operator", "operator_name", "SELECT id, name FROM Operators", $toperator, 'id', 'name');
-	CreateOptionList("Sample", "sample", "SELECT id, name FROM Samples", $tsample, 'id', 'name');
-?>
 
 <br>
 
